@@ -1,11 +1,3 @@
-
-////////////////////////////////////
-// (C)2007-2008 Coolsoft Company. //
-// All rights reserved.           //
-// http://www.coolsoft-sd.com     //
-// Licence: licence.txt           //
-////////////////////////////////////
-
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
@@ -149,8 +141,8 @@ Schedule* Schedule::Crossover(const Schedule& parent2) const
 		}
 	}
 
-	hash_map<CourseClass*, int>::const_iterator it1 = _classes.begin();
-	hash_map<CourseClass*, int>::const_iterator it2 = parent2._classes.begin();
+	unordered_map<CourseClass*, int>::const_iterator it1 = _classes.begin();
+	unordered_map<CourseClass*, int>::const_iterator it2 = parent2._classes.begin();
 
 	// make new code by combining parent codes
 	bool first = rand() % 2 == 0;
@@ -206,7 +198,7 @@ void Schedule::Mutation()
 		// select ranom chromosome for movement
 		int mpos = rand() % numberOfClasses;
 		int pos1 = 0;
-		hash_map<CourseClass*, int>::iterator it = _classes.begin();
+		unordered_map<CourseClass*, int>::iterator it = _classes.begin();
 		for( ; mpos > 0; it++, mpos-- )
 			;
 
@@ -260,7 +252,7 @@ void Schedule::CalculateFitness()
 	int ci = 0;
 
 	// check criterias and calculate scores for each class in schedule
-	for( hash_map<CourseClass*, int>::const_iterator it = _classes.begin(); it != _classes.end(); ++it, ci += 5 )
+	for(unordered_map<CourseClass*, int>::const_iterator it = _classes.begin(); it != _classes.end(); ++it, ci += 5 )
 	{
 		// coordinate of time-space slot
 		int p = ( *it ).second;

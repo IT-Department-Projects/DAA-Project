@@ -7,7 +7,7 @@
 ////////////////////////////////////
 
 #include <list>
-#include <hash_map>
+#include <unordered_map>
 #include <windows.h>
 
 #include "CourseClass.h"
@@ -104,7 +104,7 @@ private:
 
 	// Class table for chromosome
 	// Used to determine first time-space slot used by class
-	hash_map<CourseClass*, int> _classes;
+	unordered_map<CourseClass*, int> _classes;
 
 public:
 
@@ -134,7 +134,7 @@ public:
 	float GetFitness() const { return _fitness; }
 
 	// Returns reference to table of classes
-	inline const hash_map<CourseClass*, int>& GetClasses() const { return _classes; }
+	inline const unordered_map<CourseClass*, int>& GetClasses() const { return _classes; }
 
 	// Returns array of flags of class requiroments satisfaction
 	inline const vector<bool>& GetCriteria() const { return _criteria; }

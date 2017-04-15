@@ -212,9 +212,9 @@ void CChildView::OnPaint()
 
 		dc.TextOutA( sx + 10, sy + 10, fit );
 
-		const hash_map<CourseClass*, int>& classes = _schedule->GetClasses();
+		const unordered_map<CourseClass*, int>& classes = _schedule->GetClasses();
 		int ci = 0;
-		for( hash_map<CourseClass*, int>::const_iterator it= classes.begin(); it != classes.end(); ++it, ci += 5 )
+		for(unordered_map<CourseClass*, int>::const_iterator it= classes.begin(); it != classes.end(); ++it, ci += 5 )
 		{
 			CourseClass* c = ( *it ).first;
 			int p = ( *it ).second;

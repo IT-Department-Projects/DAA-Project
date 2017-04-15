@@ -13,22 +13,25 @@
 #include "Course.h"
 #include "Room.h"
 #include "CourseClass.h"
+#include <unordered_map>
+#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+using namespace std;
 
 Configuration Configuration::_instance;
 
 // Frees used resources
 Configuration::~Configuration()
 {
-	for( hash_map<int, Professor*>::iterator it = _professors.begin(); it != _professors.end(); it++ )
+	for(unordered_map<int, Professor*>::iterator it = _professors.begin(); it != _professors.end(); it++ )
 		delete ( *it ).second;
 
-	for( hash_map<int, StudentsGroup*>::iterator it = _studentGroups.begin(); it != _studentGroups.end(); it++ )
+	for( unordered_map<int, StudentsGroup*>::iterator it = _studentGroups.begin(); it != _studentGroups.end(); it++ )
 		delete ( *it ).second;
 
-	for( hash_map<int, Course*>::iterator it = _courses.begin(); it != _courses.end(); it++ )
+	for( unordered_map<int, Course*>::iterator it = _courses.begin(); it != _courses.end(); it++ )
 		delete ( *it ).second;
 
-	for( hash_map<int, Room*>::iterator it = _rooms.begin(); it != _rooms.end(); it++ )
+	for( unordered_map<int, Room*>::iterator it = _rooms.begin(); it != _rooms.end(); it++ )
 		delete ( *it ).second;
 
 	for( list<CourseClass*>::iterator it = _courseClasses.begin(); it != _courseClasses.end(); it++ )
@@ -269,7 +272,7 @@ bool Configuration::GetConfigBlockLine(ifstream& file, string& key, string& valu
 			return false;
 
 		size_t p = line.find( '=' );
-		if( p != string.npos )
+		if( p != string::npos )
 		{
 			// key
 			key = line.substr( 0, p );
