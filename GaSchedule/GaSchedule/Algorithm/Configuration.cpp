@@ -1,11 +1,3 @@
-
-////////////////////////////////////
-// (C)2007-2008 Coolsoft Company. //
-// All rights reserved.           //
-// http://www.coolsoft-sd.com     //
-// Licence: licence.txt           //
-////////////////////////////////////
-
 #include "stdafx.h"
 #include "Configuration.h"
 #include "Professor.h"

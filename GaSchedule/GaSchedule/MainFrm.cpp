@@ -1,5 +1,4 @@
 // MainFrm.cpp : implementation of the CMainFrame class
-//
 
 #include "stdafx.h"
 #include "GaSchedule.h"

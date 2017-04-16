@@ -1,11 +1,3 @@
-
-////////////////////////////////////
-// (C)2007-2008 Coolsoft Company. //
-// All rights reserved.           //
-// http://www.coolsoft-sd.com     //
-// Licence: licence.txt           //
-////////////////////////////////////
-
 #include <list>
 #include <unordered_map>
 #include <windows.h>
